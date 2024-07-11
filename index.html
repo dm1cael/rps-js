@@ -8,30 +8,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <main>
         <div class="rps-scores">
             <div class="score human-score">Human: 0</div>
             <div class="score computer-score">Computer: 0</div>
         </div>
-    </header>
 
-    <main>
-        <div class="rps-selections">
-            <div class="button" id="rock">
-                <img src="img/rock.png" alt="Rock" class="choice-img">
+        <div class="game-area">
+            <div>
+                <img class="game-human" src="img/rock.png" alt="Rock">
             </div>
-            
-            <div class="button" id="paper">
-                <img src="img/paper.png" alt="Paper" class="choice-img">
-            </div>
-    
-            <div class="button" id="scissors">
-                <img src="img/scissors.png" alt="Scissors" class="choice-img">
+
+            X
+
+            <div>
+                <img class="game-computer" src="img/rock.png" alt="Rock">
             </div>
         </div>
 
-        <div class="play-again button">Play again!</div>
-        <div class="result-display">Let's start the game. Choose between rock, paper or scissors.</div>
+        <div class="bottom-game">
+            <div class="rps-selections">
+                <div class="button" id="rock">
+                    <img src="img/rock.png" alt="Rock" class="choice-img">
+                </div>
+            
+                <div class="button" id="paper">
+                    <img src="img/paper.png" alt="Paper" class="choice-img">
+                </div>
+                <div class="button" id="scissors">
+                    <img src="img/scissors.png" alt="Scissors" class="choice-img">
+                </div>
+
+                <div class="play-again button">
+                    <img src="img/reload.png" alt="Play again!">
+                </div>
+            </div>
+            <div class="result-display">Let's start the game. Choose between rock, paper or scissors.</div>
+        </div>
     </main>
 
     <script src="app.js"></script>

@@ -8,6 +8,9 @@ const resultDisplay = document.querySelector('.result-display');
 const humanScoreUI = document.querySelector('.human-score');
 const computerScoreUI = document.querySelector('.computer-score');
 
+const humanChoiceUI = document.querySelector('.game-human');
+const computerChoiceUI = document.querySelector('.game-computer');
+
 // Buttons
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
@@ -28,6 +31,7 @@ function playRound(humanChoice) {
     if(gameHasEnded) return;
 
     const computerChoice = getComputerChoice();
+    updateGameUI(humanChoice, computerChoice);
 
     if(humanChoice == computerChoice) {
         return resultDisplay.textContent = 'It\'s a tie. Try again!';
@@ -49,6 +53,11 @@ function playRound(humanChoice) {
     }
 }
 
+function updateGameUI(humanChoice, computerChoice) {
+    computerChoiceUI.src = `img/${computerChoice}.png`;
+    humanChoiceUI.src = `img/${humanChoice}.png`;
+}
+
 function updateScore(score, target) {
     if(target == 'computer') 
     {
@@ -64,6 +73,8 @@ function updateScore(score, target) {
 function resetGame() {
     humanScore = 0;
     computerScore = 0;
+
+    updateGameUI('rock', 'rock');
 
     humanScoreUI.textContent = `Human: ${humanScore}`;
     computerScoreUI.textContent = `Computer: ${computerScore}`;

@@ -17,6 +17,7 @@ const playAgainBtn = document.querySelector('.play-again');
 rockBtn.addEventListener('click', () => playRound(rockBtn.id));
 paperBtn.addEventListener('click', () => playRound(paperBtn.id));
 scissorsBtn.addEventListener('click', () => playRound(scissorsBtn.id))
+playAgainBtn.addEventListener('click', () => resetGame());
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -58,6 +59,18 @@ function updateScore(score, target) {
     }
 
     if(score >= 5) return endGame(target);
+}
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+
+    humanScoreUI.textContent = humanScore;
+    computerScoreUI.textContent = computerScore;
+
+    resultDisplay.textContent = 'Okay, let\'s play again!';
+    
+    gameHasEnded = false;
 }
 
 function endGame(winner) {

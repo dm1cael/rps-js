@@ -62,6 +62,10 @@ main {
     gap: 1em;
 }
 
+.play-again {
+    display: none;
+}
+
 .button {
     background-color: #219ebc;
     

@@ -2,6 +2,9 @@
 let humanScore = 0;
 let computerScore = 0;
 
+// Display
+const resultDisplay = document.querySelector('.result-display');
+
 // Buttons
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
@@ -20,7 +23,7 @@ function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
 
     if(humanChoice == computerChoice) {
-        return console.log('It\'s a tie!');
+        return resultDisplay.textContent = 'It\'s a tie. Try again!';
     }
 
     if(humanChoice == 'paper' && computerChoice == 'rock' || 
@@ -28,9 +31,9 @@ function playRound(humanChoice) {
         humanChoice == 'scissors' && computerChoice == 'paper'
     ) {
         humanScore++;
-        return console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        return resultDisplay.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
     }
 
     computerScore++;
-    return console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    return resultDisplay.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
 }

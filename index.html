@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="rps-scores">
-        <div class="score human-score">0</div>
-        <div class="score computer-score">0</div>
-    </div>
-
-    <div class="rps-selections">
-        <div class="choice-btn" id="rock">
-            Rock
+    <header>
+        <div class="rps-scores">
+            <div class="score human-score">Human: 0</div>
+            <div class="score computer-score">Computer: 0</div>
         </div>
-        
-        <div class="choice-btn" id="paper">
-            Paper
+    </header>
+
+    <main>
+        <div class="rps-selections">
+            <div class="choice-btn" id="rock">
+                <img src="img/rock.png" alt="Rock" class="choice-img">
+            </div>
+            
+            <div class="choice-btn" id="paper">
+                <img src="img/paper.png" alt="Paper" class="choice-img">
+            </div>
+    
+            <div class="choice-btn" id="scissors">
+                <img src="img/scissors.png" alt="Scissors" class="choice-img">
+            </div>
         </div>
 
-        <div class="choice-btn" id="scissors">
-            Scissors
-        </div>
-    </div>
+        <div class="result-display">Let's start the game. Choose between rock, paper or scissors.</div>
+        <div class="play-again">Play again!</div>
+    </main>
 
-    <div class="result-display">Let's start the game. Choose between rock, paper or scissors.</div>
-    <div class="play-again">Play again!</div>
     <script src="app.js"></script>
 </body>
 </html>

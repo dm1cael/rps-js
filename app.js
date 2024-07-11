@@ -65,8 +65,8 @@ function resetGame() {
     humanScore = 0;
     computerScore = 0;
 
-    humanScoreUI.textContent = humanScore;
-    computerScoreUI.textContent = computerScore;
+    humanScoreUI.textContent = `Human: ${humanScore}`;
+    computerScoreUI.textContent = `Computer: ${computerScore}`;
 
     resultDisplay.textContent = 'Okay, let\'s play again!';
     
@@ -75,6 +75,8 @@ function resetGame() {
 
 function endGame(winner) {
     resultDisplay.textContent = `${capitalize(winner)} wins with 5 points!`
+
+    playAgainBtn.style.display = 'flex';
     gameHasEnded = true;
 }
 

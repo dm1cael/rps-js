@@ -1,14 +1,18 @@
 // Game variables
 let humanScore = 0;
 let computerScore = 0;
+let gameHasEnded = false;
 
 // Display
 const resultDisplay = document.querySelector('.result-display');
+const humanScoreUI = document.querySelector('.human-score');
+const computerScoreUI = document.querySelector('.computer-score');
 
 // Buttons
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+const playAgainBtn = document.querySelector('.play-again');
 
 rockBtn.addEventListener('click', () => playRound(rockBtn.id));
 paperBtn.addEventListener('click', () => playRound(paperBtn.id));
@@ -19,7 +23,9 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function playRound(humanChoice) {    
+function playRound(humanChoice) {
+    if(gameHasEnded) return;
+
     const computerChoice = getComputerChoice();
 
     if(humanChoice == computerChoice) {
@@ -30,12 +36,33 @@ function playRound(humanChoice) {
         humanChoice == 'rock' && computerChoice == 'scissors' ||
         humanChoice == 'scissors' && computerChoice == 'paper'
     ) {
+        resultDisplay.textContent = `You win! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}.`;
+
         humanScore++;
-        return resultDisplay.textContent = `You win! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}.`;
+        updateScore(humanScore, 'human');
+    } else {
+        resultDisplay.textContent = `You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`;
+
+        computerScore++;
+        updateScore(computerScore, 'computer');
+    }
+}
+
+function updateScore(score, target) {
+    if(target == 'computer') 
+    {
+        computerScoreUI.textContent = score;
+    } else 
+    {
+        humanScoreUI.textContent = score;
     }
 
-    computerScore++;
-    return resultDisplay.textContent = `You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`;
+    if(score >= 5) return endGame(target);
+}
+
+function endGame(winner) {
+    resultDisplay.textContent = `${capitalize(winner)} wins with 5 points!`
+    gameHasEnded = true;
 }
 
 function capitalize(text) {

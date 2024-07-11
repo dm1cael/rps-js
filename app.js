@@ -70,6 +70,7 @@ function resetGame() {
 
     resultDisplay.textContent = 'Okay, let\'s play again!';
     
+    playAgainBtn.style.display = 'none';
     gameHasEnded = false;
 }
 

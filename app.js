@@ -31,9 +31,13 @@ function playRound(humanChoice) {
         humanChoice == 'scissors' && computerChoice == 'paper'
     ) {
         humanScore++;
-        return resultDisplay.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
+        return resultDisplay.textContent = `You win! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}.`;
     }
 
     computerScore++;
-    return resultDisplay.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+    return resultDisplay.textContent = `You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`;
+}
+
+function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
 }

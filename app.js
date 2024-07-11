@@ -68,7 +68,7 @@ function resetGame() {
     humanScoreUI.textContent = `Human: ${humanScore}`;
     computerScoreUI.textContent = `Computer: ${computerScore}`;
 
-    resultDisplay.textContent = 'Okay, let\'s play again!';
+    resultDisplay.textContent = 'Okay, let\'s play again! Choose between rock, paper or scissors.';
     
     playAgainBtn.style.display = 'none';
     gameHasEnded = false;

@@ -52,10 +52,10 @@ function playRound(humanChoice) {
 function updateScore(score, target) {
     if(target == 'computer') 
     {
-        computerScoreUI.textContent = score;
+        computerScoreUI.textContent = `Computer: ${score}`;
     } else 
     {
-        humanScoreUI.textContent = score;
+        humanScoreUI.textContent = `Human: ${score}`;
     }
 
     if(score >= 5) return endGame(target);

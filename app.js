@@ -1,24 +1,22 @@
-const ROUNDS = 5;
+// Game variables
 let humanScore = 0;
 let computerScore = 0;
+
+// Buttons
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', () => playRound(rockBtn.id));
+paperBtn.addEventListener('click', () => playRound(paperBtn.id));
+scissorsBtn.addEventListener('click', () => playRound(scissorsBtn.id))
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function getHumanChoice() {
-    let choice;
-
-    while(choice != 'rock' && choice != 'paper' && choice != 'scissors') {
-        choice = prompt('Choose: [Rock, Paper, Scissors]').toLowerCase();
-    }
-
-    return choice;
-}
-
-function playRound() {    
-    const humanChoice = getHumanChoice();
+function playRound(humanChoice) {    
     const computerChoice = getComputerChoice();
 
     if(humanChoice == computerChoice) {
@@ -36,11 +34,3 @@ function playRound() {
     computerScore++;
     return console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
 }
-
-function playGame() {
-    for(let i = 0; i < ROUNDS; i++) {
-        playRound();
-    }
-}
-
-playGame();
